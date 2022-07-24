@@ -20,7 +20,7 @@ public class Hotel {
 
     private Address address;
 
-    private List<Reviews> reviews;
+    private List<Review> reviews;
 
     public String getHotelId() {
         return hotelId;
@@ -54,11 +54,11 @@ public class Hotel {
         this.address = address;
     }
 
-    public List<Reviews> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Reviews> reviews) {
+    public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 }

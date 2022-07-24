@@ -1,6 +1,7 @@
 package com.example.springmongo.controller;
 
 import com.example.springmongo.model.Hotel;
+import com.example.springmongo.model.Review;
 import com.example.springmongo.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +47,21 @@ public class HotelResource {
     public Boolean deleteHotel(@PathVariable("id") String id){
         try{
             hotelService.deleteHotel(id);
+            return true;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    @PostMapping(value="/review")
+    public Boolean createReview(@RequestBody Review review){
+        try{
+            Hotel hotel = hotelService.getHotel(review.getHotelId());
+//            List<Review> reviews = hotel.getReviews();
+//            reviews.add(review);
+            hotel.getReviews().add(review);
+            hotelService.updateHotel(hotel);
             return true;
         }catch (Exception e){
             System.out.println(e);
