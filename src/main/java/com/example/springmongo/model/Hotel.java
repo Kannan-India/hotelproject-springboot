@@ -13,6 +13,8 @@ public class Hotel {
     @Id
     private String hotelId;
 
+    private int hotelNum;
+
     private String hotelName;
 
     @Indexed(direction = IndexDirection.ASCENDING)
@@ -28,6 +30,14 @@ public class Hotel {
 
     public void setHotelId(String hotelId) {
         this.hotelId = hotelId;
+    }
+
+    public int getHotelNum() {
+        return hotelNum;
+    }
+
+    public void setHotelNum(int hotelNum) {
+        this.hotelNum = hotelNum;
     }
 
     public String getHotelName() {
